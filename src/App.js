@@ -44,6 +44,7 @@ function Board({ xIsNext, squares, onPlay }) {
   return (
     <>
       
+      
       <div className="board-row">
         <Square id={1} value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square id={2} value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -86,25 +87,28 @@ export default function Game() {
     setCurrentMove(nextMove);
 
   }
-
+  function undo(){
+    if (currentMove!==0)
+      setCurrentMove(currentMove-1);
+  };
   const moves = history.map((squares, move) => {
     let description;
-    
+    console.log("in history. map", move);
     // const [atMoveState,setAtMoveState] = useState(atMove)
     if (move > 0) {
       description ='Go to move #' + move;
     } else {
       description = 'Go to game start';
     }
-    let undo
-    undo=<button className="Undo" onClick={() => jumpTo(move)}>{description}</button>
+    let advUndo
+    advUndo=<button className="AdvUndo" onClick={() => jumpTo(move)}>{description}</button>
     // function AtMove(n){
     //    return( <h3>You are at # {n}</h3>)
     //   }()
     return (
      
       <ol key ={move}>
-      {undo}
+      {advUndo}
       </ol>
 
     
@@ -123,8 +127,14 @@ export default function Game() {
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
         </div>
-        <div className="game-info">
-        <ol>{moves}</ol>
+        
+      
+      <div className="game-info">
+      <div className="option">
+        <button className ="options" onClick={() => undo()}>Undo</button>
+        <button className ="options" onClick={() => jumpTo(0)}>Reset</button>        
+      </div>
+        <ol className="advoption">{moves}</ol>
       </div>
       </div>
     </div>

@@ -59,7 +59,7 @@ body {
   padding: 0;
 }
 
-.Undo{
+.AdvUndo{
  margin: 2px 4px;
  text-align: center;
  font-weight: bold;
@@ -69,19 +69,30 @@ body {
  border-color:#0e5c71;
 }
 
+.options{
+
+ margin: 2px 4px;
+ text-align: center;
+ font-weight: bold;
+ border-radius: 5%;
+ color: black;
+ background-color:#ffd1a265;
+ border-color:#8d4b06;
+}
+
 .square {
   background: #fff;
   border: 3px solid #979797;
   float: left;
-  font-size: 40px;
+  font-size: 4ch;
   font-weight: bold;
   line-height: 50px;
-  height: 50px;
+  height: 5ch;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 50px;
+  width: 5ch;
 }
 
 .board-row:after {
@@ -92,49 +103,62 @@ body {
 
 .status {
   margin: 10px;
+  width:fit-content;
   text-align: center;
 }
-.game {
+/* .game {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-top:20px;
+} */
+.game {
+  display: grid;
+  column-gap: 50px;
   margin-top:20px;
 }
-
-.game-info {
-  margin-left: 20px;
+.game-board{
+ grid-column-start: 1;
+ grid-column-end: 3;
+ justify-self: center;
 }
-@media screen and (max-width: 420px){
-  .square {
-    background: #fff;
-    border: 3px solid #979797;
-    float: left;
-    font-size: 3em;
-    font-weight: bold;
-    line-height: 50px;
-    height: 4rem;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 4rem;
-  }
+.advoption{
+  border:solid 5px #01161c;
+  padding:5px;
+  background-color: #eefbff;
+}
+ol{
+  padding-inline-start: 0px;
+}
+.game-info {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  display:block;
+  margin-right: 0px;
+}
+@media screen and (max-width: 590px){
+
   .game{
     display:block;
   }
 }
-@media screen and (max-width: 250px){
+@media screen and (max-width: 360px){
+
+  .game{
+    display:block;
+  }
   .square{
-    font-size:2em;
-    text-align: center;
-    width:3rem;
-    height:3rem;
+  font-size: 3ch;
+  height: 4ch;
+  width: 4ch;
   }
 }
-@media screen and (max-width: 180px){
+
+@media screen and (max-width: 220px){
   .square{
     display:none;
   }
   .game{
     display:none;
   }
-}
+} 

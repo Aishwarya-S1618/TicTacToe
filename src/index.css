@@ -60,6 +60,7 @@ body {
 }
 
 .AdvUndo{
+ padding:2px 4px;
  margin: 2px 4px;
  text-align: center;
  font-weight: bold;
@@ -70,10 +71,10 @@ body {
 }
 
 .options{
-
+ padding: 2px 4px;
  margin: 2px 4px;
  text-align: center;
- font-weight: bold;
+ font-weight: bolder;
  border-radius: 5%;
  color: black;
  background-color:#ffd1a265;
@@ -106,12 +107,7 @@ body {
   width:fit-content;
   text-align: center;
 }
-/* .game {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top:20px;
-} */
+
 .game {
   display: grid;
   column-gap: 50px;
@@ -122,6 +118,10 @@ body {
  grid-column-end: 3;
  justify-self: center;
 }
+.winning--square{
+  background-color: rgba(255, 255, 0, 0.71) !important; 
+}
+
 .advoption{
   border:solid 5px #01161c;
   padding:5px;

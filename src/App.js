@@ -7,11 +7,8 @@ import Help from "./Help";
 
 function Square({ id, value, onSquareClick,ifWinning}) {
   // Set the color of the text based on the value of the square
-  // const[isWinning, setIsWinning]=useState(false);
-  // if(ifWinning){
-  //   setIsWinning(true);
-  // }
-  console.log("Winning =",ifWinning);
+
+  // console.log("Winning =",ifWinning);
   return (    
     <button className={"square " + (ifWinning? "winning--square":"")} onClick={onSquareClick} style={{ color: value === "X" ? 'red' : 'green' }}>
       {value}
@@ -56,7 +53,7 @@ function Board({ xIsNext, squares, onPlay, winningSquares, cMove }) {
       // Set the status of the game based on the winner or the number of moves
       if (winners) {    
         status = ("Winner: " + winners.player);
-        console.log(winners.line);
+        // console.log(winners.line);
       } else if (cMove === 9) {
         status = ("Game Over- TIE");
       } else {
